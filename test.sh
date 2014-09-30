@@ -17,5 +17,5 @@ port="-p /dev/ttyUSB1 -b 9600 --verbose"
 	read name </sys/class/hwmon/hwmon0/name
 
 	temp=$(( temp / 1000 ))
-	/bin/echo -en "\033ABtemp0:\033AC $name $temp degC"
+	/bin/echo -en "\033ABtemp0:\033AC $name $temp °C"
 ) | ./am03127.py $port --page='D' --lead=E --lag=A --wait=3 --schedule ABCD --message
